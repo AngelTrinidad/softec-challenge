@@ -10,7 +10,9 @@ export enum MainRoutes {
 
 export type MainStackList = {
   [MainRoutes.Home]: undefined;
-  [MainRoutes.Challenge]: undefined;
+  [MainRoutes.Challenge]: {
+    index: number;
+  };
   [MainRoutes.Summary]: undefined;
 };
 

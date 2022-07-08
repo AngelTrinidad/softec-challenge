@@ -20,7 +20,9 @@ const HomeScreen: ScreenComponent<MainRoutes.Home> = ({ navigation }) => {
   }, [data]);
 
   const handlePress = useCallback(() => {
-    navigation.navigate(MainRoutes.Challenge);
+    navigation.navigate(MainRoutes.Challenge, {
+      index: 0,
+    });
   }, [navigation]);
 
   const renderContent = useCallback(

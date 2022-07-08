@@ -7,36 +7,39 @@ import { View } from 'react-native';
 
 import styles from './styles';
 
-const ChallengeScreen: ScreenComponent<MainRoutes.Challenge> = ({ navigation }) => {
-  const { questions, currentIndex, addAnswer } = useContext(ChallengeContext);
+const ChallengeScreen: ScreenComponent<MainRoutes.Challenge> = ({ navigation, route }) => {
+  const questionIndex = route.params.index;
+  const { questions, addAnswer } = useContext(ChallengeContext);
 
   const handleOptionPress = useCallback(
     (answer: number) => {
       // Add new answer
-      addAnswer({ question: questions[currentIndex], answer });
+      addAnswer({ question: questions[questionIndex], answer });
 
-      if (currentIndex + 1 === questions.length) {
+      if (questionIndex + 1 === questions.length) {
         // Scenario when the user resonse the last question, go to summary
         navigation.navigate(MainRoutes.Summary);
         return;
       }
 
       // Navigate to next question
-      navigation.push(MainRoutes.Challenge);
+      navigation.push(MainRoutes.Challenge, {
+        index: questionIndex + 1,
+      });
     },
-    [navigation, questions, currentIndex, addAnswer]
+    [navigation, questions, questionIndex, addAnswer]
   );
 
   return (
     <Container>
       <Title>{APP_DISPLAY_NAME}</Title>
-      {questions[currentIndex] && (
+      {questions[questionIndex] && (
         <>
           <ViewFlex style={styles.challengeContainer}>
-            <Text style={styles.challenge}>{questions[currentIndex].text}</Text>
+            <Text style={styles.challenge}>{questions[questionIndex].text}</Text>
           </ViewFlex>
           <View style={styles.answersContainer}>
-            {questions[currentIndex].answers.map((answer) => (
+            {questions[questionIndex].answers.map((answer) => (
               <AnswerOption
                 key={answer.number}
                 value={answer}
@@ -45,7 +48,7 @@ const ChallengeScreen: ScreenComponent<MainRoutes.Challenge> = ({ navigation }) 
               />
             ))}
           </View>
-          <Text style={styles.footer}>{currentIndex + 1} de 10</Text>
+          <Text style={styles.footer}>{questionIndex + 1} de 10</Text>
         </>
       )}
     </Container>
