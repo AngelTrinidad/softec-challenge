@@ -7,7 +7,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 32,
-    paddingVertical: 20
+    paddingVertical: 20,
   },
   title: {
     color: 'white',

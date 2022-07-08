@@ -1,5 +1,5 @@
 import { ChallengeWithAnswer, Question } from '@interfaces/challenge';
-import React, { createContext, FC, ReactNode, useMemo, useReducer } from 'react';
+import React, { createContext, FC, ReactNode, useCallback, useMemo, useReducer } from 'react';
 
 import { challengeReducer } from './ChallengeReducer';
 
@@ -26,17 +26,23 @@ export const ChallengeContext = createContext({} as ChallengeContextValue);
 export const ChallengeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(challengeReducer, INITIAL_STATE);
 
-  const updateQuestions = (payload: Question[]) => {
-    dispatch({ type: 'SET_QUESTIONS', payload });
-  };
+  const updateQuestions = useCallback(
+    (payload: Question[]) => {
+      dispatch({ type: 'SET_QUESTIONS', payload });
+    },
+    [dispatch]
+  );
 
-  const addAnswer = (payload: { question: Question; answer: number }) => {
-    dispatch({ type: 'ADD_ANSWER', payload });
-  };
+  const addAnswer = useCallback(
+    (payload: { question: Question; answer: number }) => {
+      dispatch({ type: 'ADD_ANSWER', payload });
+    },
+    [dispatch]
+  );
 
-  const clearAnswers = () => {
+  const clearAnswers = useCallback(() => {
     dispatch({ type: 'CLEAR_ANSWERS' });
-  };
+  }, [dispatch]);
 
   /**
    * Memorize values to provide

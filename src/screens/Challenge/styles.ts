@@ -9,7 +9,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   challenge: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 22,
   },
   answerOption: {

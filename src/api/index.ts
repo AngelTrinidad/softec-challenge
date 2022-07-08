@@ -3,7 +3,7 @@ import { QuestionsResponse } from '@api/types';
 
 export const getQuestions = () => {
   return buildRequest<QuestionsResponse>({
-    url: `/preguntas.php`,
+    url: '/preguntas.php',
     method: 'GET',
   });
 };

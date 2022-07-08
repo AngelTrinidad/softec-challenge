@@ -14,6 +14,8 @@ const HomeScreen: ScreenComponent<MainRoutes.Home> = ({ navigation }) => {
   useEffect(() => {
     // Update Challenge data if data response is defined (success scenario)
     data && updateQuestions(data.questions);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const handlePress = useCallback(() => {
@@ -21,15 +23,15 @@ const HomeScreen: ScreenComponent<MainRoutes.Home> = ({ navigation }) => {
   }, [navigation]);
 
   const renderContent = useCallback(
-    (data: QuestionsResponse) => (
+    (questionsResponse: QuestionsResponse) => (
       <ViewFlex style={styles.container}>
         <Title>{`Bienvenido al desafío de ${APP_DISPLAY_NAME}`}</Title>
-        <Text>{`Son ${data.questions.length} preguntas de opción múltiple`}</Text>
+        <Text>{`Son ${questionsResponse.questions.length} preguntas de opción múltiple`}</Text>
         <Text>Podes lograr el 100%?</Text>
         <Button title="INICIAR" onPress={handlePress} />
       </ViewFlex>
     ),
-    []
+    [handlePress]
   );
 
   return (

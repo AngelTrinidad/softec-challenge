@@ -22,7 +22,9 @@ const SummaryScreen: ScreenComponent<MainRoutes.Summary> = ({ navigation }) => {
     const { points, summary } = answers.reduce<{ points: number; summary: Summary[] }>(
       (prev, current) => {
         const isCorrect: boolean = current.answer === current.correctAnswer;
-        if (isCorrect) prev.points = prev.points + 1;
+        if (isCorrect) {
+          prev.points = prev.points + 1;
+        }
 
         prev.summary.push({
           text: current.text,
