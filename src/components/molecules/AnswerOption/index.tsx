@@ -1,7 +1,8 @@
-import { TouchableOpacity, ViewStyle } from 'react-native';
-import React, { FC, memo, useCallback } from 'react';
-import { ChallengeAnswer } from '@interfaces/challenge';
 import { Text } from '@components';
+import { ChallengeAnswer } from '@interfaces/challenge';
+import React, { FC, memo, useCallback } from 'react';
+import { TouchableOpacity, ViewStyle } from 'react-native';
+
 import styles from './styles';
 
 interface Props {

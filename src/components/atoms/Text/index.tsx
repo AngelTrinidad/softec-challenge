@@ -1,6 +1,7 @@
 import { useTheme } from '@config/theme';
 import React, { FC, memo, useMemo } from 'react';
 import { Text as RNText, TextProps } from 'react-native';
+
 import styles from './styles';
 
 const Text: FC<TextProps> = ({ style, children, ...rest }) => {

@@ -1,11 +1,12 @@
-import React, { useCallback, useContext, useEffect } from 'react';
-import { MainRoutes, ScreenComponent } from '@interfaces/navigation';
-import { Button, Container, RequestStatusContent, Text, Title, ViewFlex } from '@components';
-import styles from './styles';
-import { APP_DISPLAY_NAME } from '@utils/constants/app';
-import useGetQuestions from '@hooks/api/query/useGetQuestions';
-import { ChallengeContext } from '@contexts/challenge';
 import { QuestionsResponse } from '@api/types';
+import { Button, Container, RequestStatusContent, Text, Title, ViewFlex } from '@components';
+import { ChallengeContext } from '@contexts/challenge';
+import useGetQuestions from '@hooks/api/query/useGetQuestions';
+import { MainRoutes, ScreenComponent } from '@interfaces/navigation';
+import { APP_DISPLAY_NAME } from '@utils/constants/app';
+import React, { useCallback, useContext, useEffect } from 'react';
+
+import styles from './styles';
 
 const HomeScreen: ScreenComponent<MainRoutes.Home> = ({ navigation }) => {
   const { data, isLoading, isError, refetch } = useGetQuestions();

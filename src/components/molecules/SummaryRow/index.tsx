@@ -1,8 +1,9 @@
-import { View, ViewStyle } from 'react-native';
-import React, { FC, memo, useMemo } from 'react';
-import styles from './styles';
 import { Text } from '@components/atoms';
 import { useTheme } from '@config/theme';
+import React, { FC, memo, useMemo } from 'react';
+import { View, ViewStyle } from 'react-native';
+
+import styles from './styles';
 
 interface Props {
   isCorrect: boolean;

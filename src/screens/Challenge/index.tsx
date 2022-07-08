@@ -1,10 +1,11 @@
-import React, { useCallback, useContext } from 'react';
-import { MainRoutes, ScreenComponent } from '@interfaces/navigation';
 import { AnswerOption, Container, Text, Title, ViewFlex } from '@components';
-import { APP_DISPLAY_NAME } from '@utils/constants/app';
-import { View } from 'react-native';
-import styles from './styles';
 import { ChallengeContext } from '@contexts/challenge';
+import { MainRoutes, ScreenComponent } from '@interfaces/navigation';
+import { APP_DISPLAY_NAME } from '@utils/constants/app';
+import React, { useCallback, useContext } from 'react';
+import { View } from 'react-native';
+
+import styles from './styles';
 
 const ChallengeScreen: ScreenComponent<MainRoutes.Challenge> = ({ navigation }) => {
   const { questions, currentIndex, addAnswer } = useContext(ChallengeContext);

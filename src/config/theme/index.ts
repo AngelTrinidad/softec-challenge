@@ -1,5 +1,6 @@
 import { createTheming } from '@callstack/react-theme-provider';
 import { CustomThemeProvider } from '@interfaces/theme';
+
 import { DEFAULT_THEME } from './values/default';
 
 const theme = createTheming(DEFAULT_THEME);

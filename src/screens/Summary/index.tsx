@@ -1,9 +1,10 @@
-import { ScrollView } from 'react-native';
-import React, { ReactElement, useCallback, useContext } from 'react';
-import { MainRoutes, ScreenComponent } from '@interfaces/navigation';
 import { Button, Container, SummaryRow, Title } from '@components';
-import styles from './styles';
 import { ChallengeContext } from '@contexts/challenge';
+import { MainRoutes, ScreenComponent } from '@interfaces/navigation';
+import React, { ReactElement, useCallback, useContext } from 'react';
+import { ScrollView } from 'react-native';
+
+import styles from './styles';
 
 interface Summary {
   text: string;
